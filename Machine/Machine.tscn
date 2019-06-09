@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Machine/Machine.gd" type="Script" id=1]
+[ext_resource path="res://Machine/Tube/Tube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://CustomResources/StyleBoxFlat/Red.tres" type="StyleBox" id=3]
+[ext_resource path="res://CustomResources/StyleBoxFlat/Blue.tres" type="StyleBox" id=4]
+
+[node name="Machine" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ 688.0, 496.0, 304.0 ]
+}
+tube2_value = 5
+goal = 6
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Tube" parent="." instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_top = 240.0
+margin_right = 500.0
+margin_bottom = 293.0
+max_value = 120.0
+value = 0.0
+limit = 4
+
+[node name="Tube2" parent="." instance=ExtResource( 2 )]
+margin_left = 296.0
+margin_top = 240.0
+margin_right = 692.0
+margin_bottom = 293.0
+max_value = 120.0
+value = 0.0
+limit = 10
+
+[node name="Tube3" parent="." instance=ExtResource( 2 )]
+margin_left = 488.0
+margin_top = 240.0
+margin_right = 884.0
+margin_bottom = 293.0
+max_value = 120.0
+value = 0.0
+limit = 2
+
+[node name="Fill" type="Button" parent="."]
+margin_left = 272.0
+margin_top = 476.0
+margin_right = 336.0
+margin_bottom = 540.0
+text = "Llenar"
+
+[node name="ChangeRed" type="Button" parent="."]
+margin_left = 464.0
+margin_top = 476.0
+margin_right = 528.0
+margin_bottom = 540.0
+text = "Cambiar"
+
+[node name="ChangeBlue" type="Button" parent="."]
+margin_left = 656.0
+margin_top = 476.341
+margin_right = 720.0
+margin_bottom = 540.341
+text = "Cambiar"
+
+[node name="RedLine" type="HSeparator" parent="."]
+margin_left = 304.0
+margin_top = 56.0
+margin_right = 496.0
+margin_bottom = 60.0
+custom_styles/separator = ExtResource( 3 )
+
+[node name="BlueLine" type="HSeparator" parent="."]
+margin_left = 496.0
+margin_top = 48.0
+margin_right = 688.0
+margin_bottom = 52.0
+custom_styles/separator = ExtResource( 4 )
+
+[node name="RedSign" type="ColorRect" parent="."]
+margin_left = 488.0
+margin_top = 552.0
+margin_right = 504.0
+margin_bottom = 568.0
+color = Color( 0.929412, 0.196078, 0.196078, 1 )
+
+[node name="BlueSign" type="ColorRect" parent="."]
+margin_left = 680.0
+margin_top = 552.0
+margin_right = 696.0
+margin_bottom = 568.0
+color = Color( 0.196078, 0.309804, 0.929412, 1 )
+
