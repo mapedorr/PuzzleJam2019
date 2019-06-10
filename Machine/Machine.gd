@@ -24,6 +24,11 @@ func _ready():
 	# Fill tubes
 	$Tube2.value = tube2_value * 10
 	$Tube3.value = tube3_value * 10
+	# Place the GOAL line
+	$WineLine.set_position(Vector2(
+		$WineLine.get_position().x,
+		$WineLine.get_position().y + (in_space_fill.division_size * goal)
+	))
 
 func fill_pressed():
 	# Check how much liquid can be put on the tube in the fill space
@@ -36,7 +41,8 @@ func fill_pressed():
 		# Check the win condition
 		yield(get_tree().create_timer(0.6), "timeout")
 		if in_space_fill.get_small_value() == self.goal:
-			print("A WINNER is YOU!")
+			$UI/UIAnimations.stop()
+			$UI/UIAnimations.play("ShowMessage")
 
 func change_red():
 	# Move back the tube in space red

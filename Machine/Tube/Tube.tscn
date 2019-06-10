@@ -22,7 +22,7 @@ script = ExtResource( 3 )
 
 [node name="HSeparator" type="VSeparator" parent="."]
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_right = 13.0
+margin_left = 384.0
+margin_right = 388.0
 custom_styles/separator = ExtResource( 4 )
 

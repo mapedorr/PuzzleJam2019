@@ -8,9 +8,9 @@ var division_size = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Place the HSeparator that shows the limit of the tube
-	var content_size = self.get_size().x - (v_border_width * 2)
+	var content_size = self.get_size().x
 	division_size = content_size / 12
-	$HSeparator.set_position(Vector2(9.0 + (division_size * limit), 0))
+	$HSeparator.set_position(Vector2(division_size * limit, 0))
 
 func fill(amount):
 	var current_value = get_small_value()
