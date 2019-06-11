@@ -3,7 +3,7 @@
 [ext_resource path="res://Machine/Tube/bg.png" type="Texture" id=1]
 [ext_resource path="res://Machine/Tube/fill.png" type="Texture" id=2]
 [ext_resource path="res://Machine/Tube/Tube.gd" type="Script" id=3]
-[ext_resource path="res://CustomResources/StyleBoxFlat/Green.tres" type="StyleBox" id=4]
+[ext_resource path="res://CustomResources/StyleBoxFlat/green.tres" type="StyleBox" id=4]
 
 [node name="Tube" type="TextureProgress"]
 margin_left = -198.0

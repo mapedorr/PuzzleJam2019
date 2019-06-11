@@ -1,8 +1,9 @@
 extends Control
 
-export(int, 1, 12) var tube2_value = 1
-export(int, 1, 12) var tube3_value = 1
-export(int, 1, 12) var goal = 1
+export(int, 0, 12) var tube1_value = 0
+export(int, 0, 12) var tube2_value = 0
+export(int, 0, 12) var tube3_value = 0
+export(int, 0, 12) var goal = 1
 var in_space_red = null
 var in_space_blue = null
 var in_space_fill = null
@@ -22,12 +23,13 @@ func _ready():
 	$ChangeRed.connect("pressed", self, "change_red")
 	$ChangeBlue.connect("pressed", self, "change_blue")
 	# Fill tubes
-	$Tube2.value = tube2_value * 10
-	$Tube3.value = tube3_value * 10
+	in_space_fill.value = tube1_value * 10
+	in_space_red.value = tube2_value * 10
+	in_space_blue.value = tube3_value * 10
 	# Place the GOAL line
 	$WineLine.set_position(Vector2(
 		$WineLine.get_position().x,
-		$WineLine.get_position().y + (in_space_fill.division_size * goal)
+		$WineLine.get_position().y - (in_space_fill.division_size * goal)
 	))
 
 func fill_pressed():
@@ -41,6 +43,7 @@ func fill_pressed():
 		# Check the win condition
 		yield(get_tree().create_timer(0.6), "timeout")
 		if in_space_fill.get_small_value() == self.goal:
+			$UI/Container.show()
 			$UI/UIAnimations.stop()
 			$UI/UIAnimations.play("ShowMessage")
 
@@ -80,15 +83,15 @@ func send_back(tube, to_back = true):
 		Tween.TRANS_ELASTIC,
 		Tween.EASE_OUT
 	)
-	$Tween.interpolate_property(
-		tube,
-		"self_modulate",
-		tube.get_self_modulate(),
-		target_color,
-		0.5,
-		Tween.TRANS_ELASTIC,
-		Tween.EASE_OUT
-	)
+#	$Tween.interpolate_property(
+#		tube,
+#		"self_modulate",
+#		tube.get_self_modulate(),
+#		target_color,
+#		0.5,
+#		Tween.TRANS_ELASTIC,
+#		Tween.EASE_OUT
+#	)
 	$Tween.start()
 
 func swap(right_tube, left_tube):
