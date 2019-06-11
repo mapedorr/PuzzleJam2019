@@ -19,7 +19,11 @@ func fill(amount):
 	var new_value = min(current_value + amount, limit)
 	var diff = amount - (limit - current_value)
 	self.tween_value(new_value * 10)
+	$FullSound.value = new_value
+	$FullSound.update()
+	$FullSound.play()
 	return diff if diff > 0 else 0
+	
 
 func empty(amount):
 	if amount < self.value:
@@ -36,6 +40,7 @@ func tween_value(new_value):
 		Tween.EASE_OUT
 	)
 	$Tween.start()
+	
 
 func get_small_value():
 	return int(self.get_value() / 10)
